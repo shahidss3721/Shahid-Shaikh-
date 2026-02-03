@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f3; /* Halka pink background */
+      padding-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #puchho { background-color: #ff4d6d; color: white;
+               
+     }
+    #mtp{ background-color: #ccc;
+    position: absolute;
+    
+     }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+</head>
+<body id="main">
+<input type="text" id="crush">
+  <h2>Happy Birthday 🎂<p id="name"></p></h2>
+  <h3>Kuch Puchhu? 👉👈</h3>
+  
+  <button onclick="love()" id="puchho">Puchho ☺️</button>
+  <button id="mtp" onmouseover="no()">Mat Puchho 🙈</button>
+  
+  <p id="replypuchho" style="font-size: 18px; line-height: 1.6;"></p>
+
+  <script>
+      function love() {
+          // Backticks (`) use kiya hai multi-line ke liye
+      let l=document.getElementById ("crush").value
+         
+         
+         if(l=="") {
+             alert("naam toh likh pehle");
+             return false;
+         }
+         document.getElementById ("name").innerHTML= l+"<br>";
+         document.getElementById("replypuchho").innerHTML = `
+          Bas ek baat kehni thi… 😍<br><br>
+          Aap hi ke bina hoon kyun bechain?<br>
+          Aap hi kyun meri zaroorat hain?<br>
+          Wehm itna haseen nahi hota,<br>
+          Waakai aap khoobsurat hain ❤️<br><br>
+          <strong>Happy Birthday 🎂❤️</strong>
+          `;
+          confetti({
+              particalCount:200,
+              spread:100,
+              origin:{y:0.6}
+          })
+
+          // Button ko hide kar do
+          document.getElementById("puchho").style.display = "none";
+          document.getElementById("mtp").style.display = "none";
+      }
+
+      function no() {
+         let btn = document.getElementById("mtp");
+         
+         let x = 
+         Math.random()*(window.innerWidth - btn.clientWidth);
+          
+          let y = 
+         Math.random()*(window.innerHeight - btn.clientHeight);
+        
+        btn.style.left =x+"px";
+        btn.style.top =y+"px";  
+        
+        
+      }
+      
+          
+      
+  </script>
+
+</body>
+</html>
