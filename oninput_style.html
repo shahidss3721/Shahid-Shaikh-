@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+    
+    body{
+        font-family:'Arial', sans-serif;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        height:100vh;
+        margin:0;
+        transition:background-color 0.5s ease;
+        
+    }
+    input{
+        padding:12px 12px;
+        border-radius:25px;
+        border:2px solid #ddd;
+        outline:none;
+        font-size:16px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.2);
+        
+    }
+    button{
+        padding:12px 30px;
+        color:white;
+        background-color:#333;
+        border-radius:25px;
+        cursor:pointer;
+        font-weight:bold;
+        text-transform:uppercase;
+        transition:0.3s;
+        margin-top:10px;
+    }
+    button:hover{
+        background-color:#000;
+        transform:scale(1.1);
+    }
+    
+    </style>
+</head>
+<body id="body">
+  <h2>Name Calculator</h2>
+  <input type="text" id="name" placeholder="Enter Your Name"
+      oninput="changeBG()"> 
+  <button onclick="calculator()">Calculate</button>
+ <br><br>
+  
+  <h2 id="display"></h2>
+  <p id="result"></p>
+ 
+  <script>
+  
+  
+
+    let msg= [
+   "is a Legend!", 
+    "is a Pro Coder!", 
+    "is a Heartbreaker!", 
+    "is Future Millionaire!"
+    ];
+      
+ 
+    function calculator(){
+      let naam=
+      document.getElementById("name").value;
+      if(naam==""){
+        alert("Bhai naam toh likh");
+        return ;
+  }
+        changeBG();
+        
+      let randomindex= Math.floor(Math.random()*msg.length);
+      let randommsg = msg[randomindex];
+      let mmm=document.getElementById("result");
+       
+      
+      let m= Math.floor(Math.random()*256);
+      let n = Math.floor(Math.random()*256);
+    let o = Math.floor(Math.random()*256);
+      
+      let rand = "rgb("+m+","+n+","+o+")";
+      
+      mmm.innerHTML = naam+" "+randommsg; //print
+      mmm.style.color=rand;
+      mmm.style.fontSize="20px";
+      mmm.style.textDecoration="underline";
+      
+      document.getElementById("display").innerHTML=
+      "Hello "+naam;
+        let q= Math.floor(Math.random()*256);
+      let w = Math.floor(Math.random()*256);
+    let e = Math.floor(Math.random()*256);
+     let clr = "rgb(" +q+","+w+","+e+")";
+        document.getElementById("display").style.color=clr;
+        
+     
+    }
+  function changeBG(){
+    let r = Math.floor(Math.random()*256);
+      let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+      
+      
+      let randomcolor = "rgb("+r+","+g+","+b+")";
+      
+      document.getElementById("body").style.backgroundColor=randomcolor;
+    let oppclr= "rgb("+g+","+b+","+r+")";
+       document.getElementById("body").style.color=oppclr;
+  }
+  
+  </script> 
+</body>
+</html>
